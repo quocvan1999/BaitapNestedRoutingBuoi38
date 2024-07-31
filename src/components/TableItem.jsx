@@ -19,8 +19,8 @@ const TableItem = () => {
       <td>A</td>
       <td>
         <div className="text-orange-400 flex gap-3 w-full justify-center">
-          <NavLink>Edit</NavLink> |<NavLink>Delete</NavLink> |
-          <NavLink>View detail</NavLink>
+          <NavLink to="/product-management/update-product/10">Edit</NavLink> |
+          <NavLink>Delete</NavLink> |<NavLink>View detail</NavLink>
         </div>
       </td>
     </tr>
