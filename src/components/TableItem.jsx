@@ -1,26 +1,37 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const TableItem = () => {
+const TableItem = ({ product, deleteProduct }) => {
   return (
     <tr className="text-center">
       <td>
-        <input type="checkbox" class="accent-orange-400" />
+        <input type="checkbox" className="accent-orange-400" />
       </td>
-      <td>Product 1</td>
+      <td>{product.name}</td>
       <td className="flex justify-center">
-        <img
-          src="https://www.keycdn.com/img/blog/image-cdn.png"
-          alt="img"
-          className="w-[100px]"
-        />
+        <img src={product.img} alt="img" className="w-[50px]" />
       </td>
-      <td>200</td>
-      <td>A</td>
+      <td>{product.price}$</td>
+      <td>{product.type}</td>
       <td>
         <div className="text-orange-400 flex gap-3 w-full justify-center">
-          <NavLink to="/product-management/update-product/10">Edit</NavLink> |
-          <NavLink>Delete</NavLink> |<NavLink>View detail</NavLink>
+          <NavLink
+            to={`/product-management/form-product/${product.id}?type=edit`}
+          >
+            Edit
+          </NavLink>
+          |
+          <button
+            onClick={() => {
+              deleteProduct(product.id, product.name);
+            }}
+          >
+            Delete
+          </button>{" "}
+          |
+          <NavLink to={`/product-management/detail-product/${product.id}`}>
+            View detail
+          </NavLink>
         </div>
       </td>
     </tr>

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import ProductCreate from "./layouts/ProductCreate";
+import ProductForm from "./layouts/ProductForm";
 import ProductManage from "./layouts/ProductManage";
-import ProductUpdate from "./layouts/ProductUpdate";
+import ProductDetail from "./layouts/ProductDetail";
 
 function App() {
   return (
@@ -11,9 +11,11 @@ function App() {
       <Routes>
         <Route path="product-management" element={<HomePage />}>
           <Route index element={<ProductManage />} />
-          <Route path="create-product" element={<ProductCreate />} />
-          <Route path="update-product">
-            <Route path=":id" element={<ProductUpdate />} />
+          <Route path="form-product">
+            <Route path=":id" element={<ProductForm />} />
+          </Route>
+          <Route path="detail-product">
+            <Route path=":id" element={<ProductDetail />} />
           </Route>
         </Route>
       </Routes>

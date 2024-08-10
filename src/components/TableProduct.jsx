@@ -1,14 +1,14 @@
 import React from "react";
 import TableItem from "./TableItem";
 
-const TableProduct = () => {
+const TableProduct = ({ products, deleteProduct }) => {
   return (
     <div className="bg-white p-3 rounded-md mt-3">
-      <table class="table-auto w-full">
+      <table className="table-auto w-full">
         <thead>
           <tr className="text-gray-500">
             <th className="font-medium">
-              <input type="checkbox" class="accent-orange-400" />
+              <input type="checkbox" className="accent-orange-400" />
             </th>
             <th className="font-medium">NAME</th>
             <th className="font-medium">IMG</th>
@@ -18,9 +18,15 @@ const TableProduct = () => {
           </tr>
         </thead>
         <tbody>
-          <TableItem />
-          <TableItem />
-          <TableItem />
+          {products
+            ? products.map((product, index) => (
+                <TableItem
+                  key={index}
+                  product={product}
+                  deleteProduct={deleteProduct}
+                />
+              ))
+            : "Loading"}
         </tbody>
       </table>
       <div className="w-full flex justify-between mt-3 font-normal">
